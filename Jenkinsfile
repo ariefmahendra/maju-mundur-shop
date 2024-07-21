@@ -16,6 +16,8 @@ pipeline {
 
         stage("Test"){
             steps {
+                echo("will be sleep 5 second")
+                sleep(5)
                 echo("fix error test")
             }
         }
