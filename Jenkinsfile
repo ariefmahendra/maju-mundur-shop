@@ -5,6 +5,7 @@ pipeline {
         stage("Build"){
             steps {
                 echo("Start Build")
+                sh("chmod +x -R ${env.WORKSPACE}")
                 sh("./mvnw clean compile test-compile")
                 echo("Finish Build")
             }
