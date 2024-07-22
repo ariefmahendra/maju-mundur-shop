@@ -2,23 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage("Hello") {
-            steps {
-                echo("Hello Pipeline")
-            }
-        }
-
         stage("Build"){
             steps {
-                echo("Hello Build")
+                echo("Start Build")
+                sh("./mvnw clean compile test-compile")
+                echo("Finish Build")
             }
         }
 
         stage("Test"){
             steps {
-                echo("will be sleep 5 second")
-                sleep(5)
-                echo("fix error test")
+                echo("Start Test")
+                sh(./mvnw test)
+                echo("Finish Test")
             }
         }
 
